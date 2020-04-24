@@ -1,0 +1,71 @@
+    <html>
+     
+    <head>
+      <title>JavaScript Accordion</title>
+      <style>
+        .main .abody {
+          padding: 5px;
+          border: 1px solid #eee;
+          display: none;
+        }
+        
+        .main .active .abody {
+          display: block;
+        }
+        
+        .main .active .ahead {
+          background-color: #bbb;
+        }
+        
+        .main .ahead {
+          background-color: #333;
+          padding: 5px;
+          color: white;
+          font-size: 1.6em;
+          margin: 5px 0;
+        }
+      </style>
+    </head>
+     
+    <body>
+      <div class='main'>
+        <div class='panel'>
+          <div class='ahead'>Panel 1 Head</div>
+          <div class='abody'>Panel 1 Body Content</div>
+        </div>
+        <div class='panel'>
+          <div class='ahead'>Panel 2 Head</div>
+          <div class='abody'>Panel 2 Body Content</div>
+        </div>
+        <div class='panel'>
+          <div class='ahead'>Panel 3 Head</div>
+          <div class='abody'>Panel 3 Body Content</div>
+        </div>
+        <div class='panel'>
+          <div class='ahead'>Panel 4 Head</div>
+          <div class='abody'>Panel 4 Body Content</div>
+        </div>
+      </div>
+      <script>
+        const accordion = document.querySelectorAll('.panel');
+        //console.log(accordion);
+        accordion.forEach(function (ele) {
+          //console.log(ele);
+          ele.addEventListener('click', toggleEle);
+        })
+     
+        function toggleEle(e) {
+          console.log(e.target.parentElement);
+          accordion.forEach(function (ele) {
+            if (e.target.parentElement === ele) {
+              ele.classList.toggle('active');
+            }
+            else {
+              ele.classList.remove('active');
+            }
+          })
+        }
+      </script>
+    </body>
+     
+    </html>
